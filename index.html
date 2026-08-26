@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuhin — Datacenter &amp; Virtualization Architect</title>
+<meta name="description" content="Datacenter &amp; Virtualization Architect — 16 years designing VMware vSphere, vSAN and NSX infrastructure, disaster recovery architecture, and hybrid cloud at enterprise scale.">
+<meta property="og:title" content="Tuhin — Datacenter &amp; Virtualization Architect">
+<meta property="og:description" content="16 years designing resilient, high-availability VMware infrastructure — vSphere, vSAN, NSX, disaster recovery architecture, hybrid cloud.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0E14'/%3E%3Crect x='7' y='7' width='18' height='18' fill='none' stroke='%235B9BD5' stroke-width='2'/%3E%3Ccircle cx='23' cy='9' r='2' fill='%23E8A33D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E14;
+    --panel:#10161E;
+    --panel-2:#141B24;
+    --line:#243040;
+    --line-soft:#1A2330;
+    --text:#E7EBEF;
+    --text-muted:#8996A5;
+    --accent:#5B9BD5;
+    --amber:#E8A33D;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center top;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover, a:focus-visible{ text-decoration:underline; }
+  ::selection{ background:var(--accent); color:#0A0E14; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  /* HERO */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 400px at 20% -10%, rgba(91,155,213,0.12), transparent 60%);
+  }
+  .status-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--amber);
+    border:1px solid rgba(232,163,61,0.35);
+    background:rgba(232,163,61,0.06);
+    padding:6px 12px; border-radius:2px;
+    margin-bottom:28px;
+  }
+  .status-dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 0 3px rgba(232,163,61,0.18);
+    animation:pulse 2.2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .status-dot{ animation:none; } }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.45;} }
+
+  h1{
+    font-size:clamp(34px, 5.2vw, 54px);
+    font-weight:700;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    max-width:14ch;
+  }
+  .role{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--accent);
+    font-size:15px;
+    letter-spacing:0.02em;
+    margin-top:14px;
+  }
+  .tagline{
+    margin-top:22px;
+    max-width:60ch;
+    font-size:17px;
+    color:var(--text-muted);
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:28px;
+    margin-top:40px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--text-muted);
+  }
+  .hero-meta strong{ color:var(--text); font-weight:600; }
+
+  /* RACK UNIT SECTION LABELS */
+  .unit-label{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:36px;
+  }
+  .unit-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--amber);
+    border:1px solid var(--line);
+    padding:3px 8px;
+    letter-spacing:0.04em;
+  }
+  .unit-label h2{
+    font-size:22px; font-weight:600; letter-spacing:-0.01em;
+  }
+
+  section{ padding:64px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  /* EXPERTISE GRID */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:640px){ .grid{ grid-template-columns:1fr; } }
+  .cell{
+    background:var(--panel);
+    padding:22px 24px;
+  }
+  .cell .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--text-muted);
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .cell .v{
+    margin-top:8px; font-size:15.5px; font-weight:500;
+  }
+
+  /* CASE STUDIES */
+  .case{
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:28px 28px 26px;
+    margin-bottom:20px;
+    position:relative;
+  }
+  .case::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--accent);
+  }
+  .case .client{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--accent);
+  }
+  .case h3{
+    margin-top:6px; font-size:19px; font-weight:600;
+  }
+  .case p{
+    margin-top:10px; color:var(--text-muted); font-size:15px; max-width:66ch;
+  }
+  .case ul{ margin-top:12px; padding-left:18px; color:var(--text-muted); font-size:14.5px; }
+  .case li{ margin-top:4px; }
+  .case-tags{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .tagchip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--text-muted);
+    border:1px solid var(--line); padding:4px 9px;
+  }
+  .diagram-wrap{
+    margin-top:22px; border:1px solid var(--line); background:var(--bg);
+    padding:16px 12px 10px;
+  }
+  .diagram-label{
+    font-size:10px; letter-spacing:0.08em; color:var(--text-muted);
+    margin-bottom:8px;
+  }
+  .diagram-wrap svg{ width:100%; height:auto; display:block; }
+
+  .more-work{ margin-top:44px; }
+  .more-label{
+    font-size:11px; letter-spacing:0.1em; color:var(--text-muted);
+    margin-bottom:18px; text-transform:uppercase;
+  }
+  .more-item{
+    display:grid; grid-template-columns:70px 1fr; gap:18px;
+    padding:16px 0; border-top:1px solid var(--line-soft);
+  }
+  @media (max-width:520px){ .more-item{ grid-template-columns:1fr; gap:4px; } }
+  .more-when{ font-size:12px; color:var(--amber); padding-top:2px; }
+  .more-title{ font-size:15px; font-weight:600; }
+  .more-body p{ margin-top:5px; font-size:14px; color:var(--text-muted); max-width:64ch; }
+
+  @media print{
+    body{ background:#fff; color:#111; background-image:none; }
+    .status-pill{ border-color:#999; color:#111; background:none; }
+    .status-dot{ display:none; }
+    section{ border-color:#ccc; }
+    .cell, .case, .contact-box{ background:#fff; border-color:#ccc; }
+    .role, .case .client, .unit-tag{ color:#333; }
+    a{ color:#111; text-decoration:underline; }
+    .diagram-wrap{ background:#fff; border-color:#ccc; }
+  }
+
+  /* CERTS / TIMELINE */
+  .track{ position:relative; padding-left:26px; }
+  .track::before{
+    content:""; position:absolute; left:4px; top:6px; bottom:6px;
+    width:1px; background:var(--line);
+  }
+  .track-item{ position:relative; padding-bottom:26px; }
+  .track-item:last-child{ padding-bottom:0; }
+  .track-item::before{
+    content:""; position:absolute; left:-26px; top:5px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--amber);
+  }
+  .track-item .when{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-muted);
+  }
+  .track-item .what{ font-size:15.5px; font-weight:500; margin-top:4px; }
+  .track-item .sub{ font-size:14px; color:var(--text-muted); margin-top:3px; }
+
+  /* CONTACT */
+  footer{ padding:64px 0 80px; }
+  .contact-box{
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:36px 32px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:24px;
+  }
+  .contact-box h2{ font-size:20px; font-weight:600; margin-bottom:6px; }
+  .contact-box p{ color:var(--text-muted); font-size:14.5px; }
+  .contact-links{ display:flex; gap:14px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:14px; }
+  .contact-links a{ border:1px solid var(--line); padding:9px 16px; color:var(--text); }
+  .contact-links a:hover{ border-color:var(--accent); color:var(--accent); text-decoration:none; }
+  .fineprint{
+    margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-muted);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="status-pill"><span class="status-dot"></span>Available for engagement</div>
+    <h1>Tuhin</h1>
+    <div class="role">Datacenter &amp; Virtualization Architect</div>
+    <p class="tagline">Sixteen years designing and running resilient, high-availability infrastructure for banking and media enterprises — VMware vSphere, vSAN and NSX at scale, disaster recovery architecture, and hybrid cloud datacenter design.</p>
+    <div class="hero-meta">
+      <div><strong>16 yrs</strong> infrastructure architecture</div>
+      <div><strong>2,500+</strong> hosts and <strong>10,000+</strong> VMs managed within a single engagement</div>
+      <div><strong>Coforge Ltd</strong> — Senior Technical Lead, Infrastructure Architecture</div>
+      <div><strong>NCR, India</strong></div>
+    </div>
+  </div>
+</header>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="unit-label"><span class="unit-tag">U01</span><h2>Core Expertise</h2></div>
+    <div class="grid">
+      <div class="cell"><div class="k">Virtualization</div><div class="v">VMware vSphere &amp; ESXi</div></div>
+      <div class="cell"><div class="k">Storage</div><div class="v">vSAN — design, health &amp; fault-domain management</div></div>
+      <div class="cell"><div class="k">Networking</div><div class="v">NSX</div></div>
+      <div class="cell"><div class="k">Resilience</div><div class="v">Disaster Recovery Architecture</div></div>
+      <div class="cell"><div class="k">Cloud</div><div class="v">Hybrid Cloud Integration</div></div>
+      <div class="cell"><div class="k">Scale</div><div class="v">Datacenter Architecture at Enterprise Scale</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="unit-label"><span class="unit-tag">U02</span><h2>Selected Work</h2></div>
+
+    <div class="case">
+      <div class="client">Current Role — Coforge Ltd</div>
+      <h3>Infrastructure Accountability Across Three Global Datacenters</h3>
+      <p>Overall infrastructure ownership for VMware, Wintel, Active Directory, SCCM, storage, Citrix, and Linux across a large-scale enterprise estate spanning media and financial-services clients — 45 vCenters, 2,500+ ESXi hosts, 10,000+ VMs maintained at 99.99% uptime.</p>
+      <ul>
+        <li>Led a phased vSphere 6.7 → 7.0 → 8.0 upgrade across 1,000+ ESXi hosts with staged rollback plans — zero unplanned downtime across the programme</li>
+        <li>Led phased Windows Server upgrades (2008 → 2012R2 → 2016 → 2019) across 4,500+ VMs running DHCP, NPS, and Certificate Authority roles, with zero unplanned downtime</li>
+        <li>Architected an NSX-T micro-segmented environment alongside vSphere 7 to tighten lateral-movement controls and simplify workload mobility between on-prem and cloud</li>
+        <li>Authored a 3-year DR roadmap and business case securing $1.2M in executive approval, modelling cost, risk, and compliance scenarios with the CISO team</li>
+        <li>Leads a 21-engineer cross-geography team — incident escalation, on-call coordination, and standardised runbooks, improving first-time resolution rates over 18 months</li>
+      </ul>
+      <div class="case-tags">
+        <span class="tagchip">Infrastructure Leadership</span>
+        <span class="tagchip">vSphere Upgrades</span>
+        <span class="tagchip">Team Leadership</span>
+        <span class="tagchip">Executive Business Case</span>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="client">Media &amp; Broadcast Enterprise</div>
+      <h3>Disaster Recovery Architecture — Design &amp; Build</h3>
+      <p>Designed and built the DR architecture for a critical broadcast infrastructure estate: on-premises stretched vSphere clusters replicating into a cloud-hosted stretched vSphere/vSAN SDDC, with a dedicated cloud DR region as the failover target.</p>
+      <ul>
+        <li>50 ESXi hosts across 5 clusters spanning 2 physical sites, with synchronous storage replication between on-prem availability zones</li>
+        <li>RTO reduced from 4 hours to ~2 hours through VMware Cloud DR and automated failover orchestration</li>
+        <li>Cloud DR region built on delta-based replication with a 30 min – 4 hr RPO, plus live-mount capability for non-disruptive DR testing and validation</li>
+        <li>Dual Direct Connect links with a transit gateway design for on-prem-to-cloud and inter-region connectivity</li>
+        <li>Traded on-prem DR infrastructure cost for simpler cloud-native failover orchestration; automated monthly failover tests turned DR validation into a routine, board-visible control</li>
+      </ul>
+      <div class="case-tags">
+        <span class="tagchip">DR Architecture</span>
+        <span class="tagchip">Stretched vSphere / vSAN</span>
+        <span class="tagchip">Cloud DR</span>
+        <span class="tagchip">Media / Broadcast</span>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-label mono">ILLUSTRATIVE — GENERALIZED FROM ACTUAL DESIGN</div>
+        <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simplified disaster recovery architecture diagram: on-premises stretched cluster replicating to a primary cloud SDDC, with a secondary cloud region as DR failover target.">
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#5B9BD5"/>
+            </marker>
+          </defs>
+          <!-- On-prem box -->
+          <rect x="20" y="40" width="220" height="300" fill="none" stroke="#243040" stroke-dasharray="4 3"/>
+          <text x="34" y="64" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="11">SITE A — ON-PREMISES</text>
+          <rect x="44" y="90" width="172" height="80" fill="#141B24" stroke="#2A3542"/>
+          <text x="130" y="118" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12.5" text-anchor="middle">Stretched vSphere</text>
+          <text x="130" y="134" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12.5" text-anchor="middle">Cluster</text>
+          <text x="130" y="154" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">2 AZs · sync replication</text>
+          <line x1="130" y1="170" x2="130" y2="230" stroke="#2A3542"/>
+          <rect x="44" y="230" width="172" height="60" fill="#141B24" stroke="#2A3542"/>
+          <text x="130" y="255" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12" text-anchor="middle">Direct Connect</text>
+          <text x="130" y="271" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">dual-link, redundant</text>
+
+          <!-- Primary SDDC -->
+          <rect x="320" y="20" width="230" height="180" fill="none" stroke="#243040" stroke-dasharray="4 3"/>
+          <text x="334" y="42" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="11">PRIMARY REGION — SDDC</text>
+          <rect x="344" y="60" width="190" height="120" fill="#141B24" stroke="#2A3542"/>
+          <text x="439" y="90" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12.5" text-anchor="middle">12-Node Stretched</text>
+          <text x="439" y="106" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12.5" text-anchor="middle">vSphere / vSAN Cluster</text>
+          <text x="439" y="126" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">5 clusters total</text>
+          <text x="439" y="142" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">50 hosts</text>
+          <text x="439" y="158" fill="#E8A33D" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">RTO: 4hrs → 2hrs</text>
+
+          <!-- DR Region -->
+          <rect x="600" y="200" width="230" height="150" fill="none" stroke="#243040" stroke-dasharray="4 3"/>
+          <text x="614" y="222" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="11">DR REGION — FAILOVER TARGET</text>
+          <rect x="624" y="240" width="190" height="90" fill="#141B24" stroke="#2A3542"/>
+          <text x="719" y="266" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12.5" text-anchor="middle">Cloud DR</text>
+          <text x="719" y="282" fill="#E7EBEF" font-family="IBM Plex Sans" font-size="12.5" text-anchor="middle">(scale-out target)</text>
+          <text x="719" y="302" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">delta-based · live mount</text>
+          <text x="719" y="317" fill="#E8A33D" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">RPO: 30min–4hrs</text>
+
+          <!-- Connections -->
+          <line x1="216" y1="250" x2="320" y2="120" stroke="#5B9BD5" stroke-width="1.4" marker-end="url(#arrow)"/>
+          <line x1="320" y1="130" x2="216" y2="255" stroke="#5B9BD5" stroke-width="1.4" marker-end="url(#arrow)"/>
+          <line x1="550" y1="150" x2="624" y2="255" stroke="#E8A33D" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+          <text x="590" y="200" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="10" transform="rotate(35 590,200)">replication</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="client">Global Banking Enterprise</div>
+      <h3>Large-Scale Virtualization Estate — Infrastructure Architecture</h3>
+      <p>Provided infrastructure architecture support across one of the larger VMware estates in the portfolio, operating within strict financial-sector compliance and availability requirements.</p>
+      <ul>
+        <li>45 vCenter instances across 3 sites</li>
+        <li>~2,500 ESXi hosts supporting 10,000+ virtual machines</li>
+        <li>52 clusters, combining vSAN and traditional SAN-backed storage</li>
+      </ul>
+      <div class="case-tags">
+        <span class="tagchip">Banking</span>
+        <span class="tagchip">vSphere / vSAN / SAN</span>
+        <span class="tagchip">Enterprise Compliance</span>
+        <span class="tagchip">Scale Operations</span>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-label mono">ILLUSTRATIVE — SCALE OVERVIEW</div>
+        <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scale diagram: 3 sites, 45 vCenters, 52 clusters, roughly 2500 ESXi hosts supporting over 10000 virtual machines.">
+          <line x1="70" y1="130" x2="790" y2="130" stroke="#243040" stroke-width="1"/>
+          <!-- Sites -->
+          <g font-family="IBM Plex Sans">
+            <circle cx="90" cy="130" r="8" fill="#5B9BD5"/>
+            <text x="90" y="105" fill="#E7EBEF" font-size="13" text-anchor="middle">3 Sites</text>
+            <text x="90" y="150" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">datacenters</text>
+
+            <circle cx="290" cy="130" r="10" fill="#5B9BD5"/>
+            <text x="290" y="100" fill="#E7EBEF" font-size="13" text-anchor="middle">45 vCenters</text>
+            <text x="290" y="150" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">management plane</text>
+
+            <circle cx="500" cy="130" r="13" fill="#5B9BD5"/>
+            <text x="500" y="94" fill="#E7EBEF" font-size="13" text-anchor="middle">52 Clusters</text>
+            <text x="500" y="152" fill="#8996A5" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">vSAN + traditional SAN</text>
+
+            <circle cx="710" cy="130" r="17" fill="#E8A33D"/>
+            <text x="710" y="88" fill="#E7EBEF" font-size="13" text-anchor="middle">~2,500 Hosts</text>
+            <text x="710" y="158" fill="#E8A33D" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">10,000+ VMs hosted</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="client">Internal Infrastructure Programme</div>
+      <h3>vCenter 7.0.3 → 8.0.3 Upgrade, Mixed-Version Cluster</h3>
+      <p>Currently executing a live vCenter upgrade across a mixed-version cluster, resolving cross-version compatibility issues without disrupting production workloads.</p>
+      <ul>
+        <li>Diagnosed and resolved a PVSCSI cross-version vMotion failure by targeting same-version hosts</li>
+        <li>Verified vSAN disk group format (v20) and cluster health pre- and post-upgrade</li>
+        <li>Managed ESXi SSH patching and fault-domain reassignment procedures</li>
+        <li>Authored vSAN networking SOP documentation and pre-patch Aria/vROps plugin compatibility analysis</li>
+      </ul>
+      <div class="case-tags">
+        <span class="tagchip">vCenter Upgrade</span>
+        <span class="tagchip">vSAN</span>
+        <span class="tagchip">Change Management</span>
+      </div>
+    </div>
+
+    <div class="more-work">
+      <div class="more-label mono">ADDITIONAL ENGAGEMENTS</div>
+
+      <div class="more-item">
+        <div class="more-when mono">2023</div>
+        <div class="more-body">
+          <div class="more-title">Hybrid Cloud Architecture — VMware + AWS</div>
+          <p>Kept NSX-T micro-segmentation policy and workload identity consistent across environments during HCX migration — 200+ workloads moved without replatforming and zero policy exceptions post-migration.</p>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="more-when mono">2021–22</div>
+        <div class="more-body">
+          <div class="more-title">Windows Server Modernisation</div>
+          <p>Chose blue-green staging with parallel UAT over in-place upgrades on 500+ production servers, trading calendar time for near-zero rollback risk.</p>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="more-when mono">2023</div>
+        <div class="more-body">
+          <div class="more-title">Infrastructure Capacity Automation</div>
+          <p>Built in-house PowerCLI/Python forecasting to replace off-the-shelf tooling that only gave point-in-time snapshots — eliminated ~$8K/yr in licensing and cut monthly reporting cycles from days to hours, trading build/maintenance effort for growth-pattern forecasting the business could actually act on.</p>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="more-when mono">2020</div>
+        <div class="more-body">
+          <div class="more-title">DHCP Reconsolidation &amp; Hardening</div>
+          <p>Replaced single-server DHCP across multiple sites with resilient, centrally-visible architecture — prioritised eliminating the hidden single point of failure over the cheapest fix; consolidation savings followed as a byproduct.</p>
+        </div>
+      </div>
+
+      <div class="more-item">
+        <div class="more-when mono">2020</div>
+        <div class="more-body">
+          <div class="more-title">VMware to Hyper-V Migration</div>
+          <p>Set 15-minute replication intervals as a deliberate balance — tight enough to hold RPO under an hour, loose enough to avoid overloading storage I/O during business hours while keeping production stable through cutover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="wrap">
+    <div class="unit-label"><span class="unit-tag">U03</span><h2>Certifications &amp; Career Path</h2></div>
+    <div class="track">
+      <div class="track-item">
+        <div class="when">In progress</div>
+        <div class="what">VCP-VCF Architect — Exam 2V0-13.25</div>
+      </div>
+      <div class="track-item">
+        <div class="when">In progress</div>
+        <div class="what">VCP-VCF Administrator — Exam 2V0-17.25 (VCF 9.0)</div>
+      </div>
+      <div class="track-item">
+        <div class="when">Current</div>
+        <div class="what">Coforge Ltd</div>
+        <div class="sub">Senior Technical Lead — Infrastructure Architecture</div>
+      </div>
+      <div class="track-item">
+        <div class="when">Previously</div>
+        <div class="what">HCL Technologies</div>
+      </div>
+      <div class="track-item">
+        <div class="when">Previously</div>
+        <div class="what">Dell Services</div>
+      </div>
+      <div class="track-item">
+        <div class="when">Previously</div>
+        <div class="what">Wipro</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <h2>Let's talk infrastructure.</h2>
+        <p>Open to VMware architecture and GCC infrastructure leadership roles.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:kanjilal.tuhin@gmail.com">EMAIL →</a>
+        <a href="https://www.linkedin.com/in/tuhinkanjilal" target="_blank" rel="noopener">LINKEDIN →</a>
+      </div>
+    </div>
+    <div class="fineprint">TUHIN — DATACENTER &amp; VIRTUALIZATION ARCHITECT — NCR, INDIA</div>
+  </div>
+</footer>
+
+</body>
+</html>
